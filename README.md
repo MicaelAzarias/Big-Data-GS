@@ -115,4 +115,7 @@ prints do Airflow e do banco.
 
 ## Equipe
 
-<!-- preencher: nome e RM de cada integrante -->
+Carolina Cavalli Machado - RM552925
+Felipe Megumi Nakama - RM552821
+Luis Alberto Rocha Filho - RM553507
+Micael Santos Azarias - RM552699
