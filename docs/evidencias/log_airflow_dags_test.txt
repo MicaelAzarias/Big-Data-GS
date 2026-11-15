@@ -1,0 +1,132 @@
+airflow/cli/commands/dag_command.py:48 UserWarning: Could not import graphviz. Rendering graph to the graphical format will not be possible.
+[2026-11-15T20:36:59.426+0000] {dagbag.py:588} INFO - Filling up the DagBag from ./dags
+[2026-11-15T20:36:59.848+0000] {dag.py:4435} INFO - dagrun id: em_raizes_pipeline
+[2026-11-15T20:36:59.857+0000] {dag.py:4451} INFO - created dagrun <DagRun em_raizes_pipeline @ 2026-11-15 00:00:00+00:00: manual__2026-11-15T00:00:00+00:00, state:running, queued_at: None. externally triggered: False>
+[2026-11-15T20:36:59.877+0000] {dag.py:4396} INFO - [DAG TEST] starting task_id=ingestao_bronze map_index=-1
+[2026-11-15T20:36:59.877+0000] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: em_raizes_pipeline.ingestao_bronze manual__2026-11-15T00:00:00+00:00 [scheduled]>
+[2026-11-15 20:36:59,914] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='em-raizes' AIRFLOW_CTX_DAG_ID='em_raizes_pipeline' AIRFLOW_CTX_TASK_ID='ingestao_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-11-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-15T00:00:00+00:00'
+[2026-11-15T20:36:59.914+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='em-raizes' AIRFLOW_CTX_DAG_ID='em_raizes_pipeline' AIRFLOW_CTX_TASK_ID='ingestao_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-11-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-15T00:00:00+00:00'
+[2026-11-15T20:36:59.915+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-11-15T20:37:00.028+0000] {bronze.py:49} INFO - bronze: aba 'Sobre' -> sobre.csv (24 linhas)
+[2026-11-15T20:37:00.098+0000] {bronze.py:49} INFO - bronze: aba 'Dados' -> dados.csv (576 linhas)
+[2026-11-15T20:37:00.104+0000] {bronze.py:49} INFO - bronze: aba 'Dicionário' -> dicionario.csv (26 linhas)
+[2026-11-15T20:37:00.104+0000] {bronze.py:63} INFO - bronze: manifesto gravado em ./data/bronze/dt=2026-11-15/_manifesto.json
+[2026-11-15 20:37:00,105] {python.py:240} INFO - Done. Returned value was: ./data/bronze/dt=2026-11-15
+[2026-11-15T20:37:00.105+0000] {python.py:240} INFO - Done. Returned value was: ./data/bronze/dt=2026-11-15
+[2026-11-15T20:37:00.114+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-11-15T20:37:00.115+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=em_raizes_pipeline, task_id=ingestao_bronze, run_id=manual__2026-11-15T00:00:00+00:00, execution_date=20261115T000000, start_date=, end_date=20261115T203700
+[2026-11-15T20:37:00.124+0000] {dag.py:4410} INFO - [DAG TEST] end task task_id=ingestao_bronze map_index=-1
+[2026-11-15T20:37:00.136+0000] {dag.py:4396} INFO - [DAG TEST] starting task_id=tratamento_silver map_index=-1
+[2026-11-15T20:37:00.137+0000] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: em_raizes_pipeline.tratamento_silver manual__2026-11-15T00:00:00+00:00 [scheduled]>
+[2026-11-15 20:37:00,154] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='em-raizes' AIRFLOW_CTX_DAG_ID='em_raizes_pipeline' AIRFLOW_CTX_TASK_ID='tratamento_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-11-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-15T00:00:00+00:00'
+[2026-11-15T20:37:00.154+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='em-raizes' AIRFLOW_CTX_DAG_ID='em_raizes_pipeline' AIRFLOW_CTX_TASK_ID='tratamento_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-11-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-15T00:00:00+00:00'
+[2026-11-15T20:37:00.154+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-11-15T20:37:00.158+0000] {silver.py:124} INFO - silver: voo identificado -> {'voo_id': 'voo_20261110_1925', 'gerado_em': '2026-11-10 19:25:00', 'semente': 42, 'chuva_72h_mm': 103.4, 'chuva_prevista_24h_mm': 4.3, 'chuva_e_real': True, 'local_chuva': 'Petrópolis/RJ', 'descricao_area': 'Grade de 24 × 24 quadradinhos de 10 m × 10 m (576 linhas, cerca de 5,8 hectares).', 'arquivo_origem': 'dados_simulados_em_raizes.xlsx', 'sha256_origem': 'a2a631c9965e021ebf7af0d9e13f6b769df3b3f2b5ce903501051fb0dd5331cc', 'ingerido_em_utc': '2026-11-15 20:37:00'}
+[2026-11-15T20:37:00.171+0000] {silver.py:137} INFO - silver: 576 linhas lidas, 0 duplicatas removidas
+[2026-11-15T20:37:00.199+0000] {silver.py:157} INFO - silver: 576 células gravadas em ./data/silver/dt=2026-11-15
+[2026-11-15 20:37:00,199] {python.py:240} INFO - Done. Returned value was: ./data/silver/dt=2026-11-15
+[2026-11-15T20:37:00.199+0000] {python.py:240} INFO - Done. Returned value was: ./data/silver/dt=2026-11-15
+[2026-11-15T20:37:00.206+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-11-15T20:37:00.206+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=em_raizes_pipeline, task_id=tratamento_silver, run_id=manual__2026-11-15T00:00:00+00:00, execution_date=20261115T000000, start_date=, end_date=20261115T203700
+[2026-11-15T20:37:00.214+0000] {dag.py:4410} INFO - [DAG TEST] end task task_id=tratamento_silver map_index=-1
+[2026-11-15T20:37:00.224+0000] {dag.py:4396} INFO - [DAG TEST] starting task_id=validacao_qualidade map_index=-1
+[2026-11-15T20:37:00.225+0000] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: em_raizes_pipeline.validacao_qualidade manual__2026-11-15T00:00:00+00:00 [scheduled]>
+[2026-11-15 20:37:00,241] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='em-raizes' AIRFLOW_CTX_DAG_ID='em_raizes_pipeline' AIRFLOW_CTX_TASK_ID='validacao_qualidade' AIRFLOW_CTX_EXECUTION_DATE='2026-11-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-15T00:00:00+00:00'
+[2026-11-15T20:37:00.241+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='em-raizes' AIRFLOW_CTX_DAG_ID='em_raizes_pipeline' AIRFLOW_CTX_TASK_ID='validacao_qualidade' AIRFLOW_CTX_EXECUTION_DATE='2026-11-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-15T00:00:00+00:00'
+[2026-11-15T20:37:00.241+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-11-15T20:37:00.265+0000] {qualidade.py:144} INFO - qualidade: [OK   ] tabela_nao_vazia                           
+[2026-11-15T20:37:00.265+0000] {qualidade.py:144} INFO - qualidade: [OK   ] sem_valores_nulos                          
+[2026-11-15T20:37:00.265+0000] {qualidade.py:144} INFO - qualidade: [OK   ] celula_id_unica                            
+[2026-11-15T20:37:00.266+0000] {qualidade.py:144} INFO - qualidade: [OK   ] celula_id_bate_com_linha_coluna            
+[2026-11-15T20:37:00.266+0000] {qualidade.py:144} INFO - qualidade: [OK   ] grade_completa                             24 linhas x 24 colunas = 576 células; recebidas 576
+[2026-11-15T20:37:00.266+0000] {qualidade.py:144} INFO - qualidade: [OK   ] faixa_inclinacao_graus                     esperado entre 0 e 90
+[2026-11-15T20:37:00.266+0000] {qualidade.py:144} INFO - qualidade: [OK   ] faixa_umidade_solo_pct                     esperado entre 0 e 100
+[2026-11-15T20:37:00.266+0000] {qualidade.py:144} INFO - qualidade: [OK   ] faixa_vegetacao_fracao                     esperado entre 0 e 1
+[2026-11-15T20:37:00.266+0000] {qualidade.py:144} INFO - qualidade: [OK   ] faixa_erosao_indice                        esperado entre 0 e 1
+[2026-11-15T20:37:00.266+0000] {qualidade.py:144} INFO - qualidade: [OK   ] faixa_prob_fissura                         esperado entre 0 e 1
+[2026-11-15T20:37:00.266+0000] {qualidade.py:144} INFO - qualidade: [OK   ] faixa_confianca_visao                      esperado entre 0 e 1
+[2026-11-15T20:37:00.267+0000] {qualidade.py:144} INFO - qualidade: [OK   ] faixa_risco_agora                          esperado entre 0 e 100
+[2026-11-15T20:37:00.267+0000] {qualidade.py:144} INFO - qualidade: [OK   ] faixa_risco_24h                            esperado entre 0 e 100
+[2026-11-15T20:37:00.267+0000] {qualidade.py:144} INFO - qualidade: [OK   ] faixa_casas                                esperado entre 0 e 50
+[2026-11-15T20:37:00.267+0000] {qualidade.py:144} INFO - qualidade: [OK   ] faixa_mudas_sugeridas                      esperado entre 0 e 10000
+[2026-11-15T20:37:00.267+0000] {qualidade.py:144} INFO - qualidade: [OK   ] faixa_agua_sugerida_l                      esperado entre 0 e 100000
+[2026-11-15T20:37:00.267+0000] {qualidade.py:144} INFO - qualidade: [OK   ] dominio_tipo_solo_amostra                  
+[2026-11-15T20:37:00.267+0000] {qualidade.py:144} INFO - qualidade: [OK   ] dominio_tipo_solo_visao                    
+[2026-11-15T20:37:00.267+0000] {qualidade.py:144} INFO - qualidade: [OK   ] dominio_classe_agora                       
+[2026-11-15T20:37:00.267+0000] {qualidade.py:144} INFO - qualidade: [OK   ] dominio_classe_24h                         
+[2026-11-15T20:37:00.267+0000] {qualidade.py:144} INFO - qualidade: [OK   ] dominio_tendencia                          
+[2026-11-15T20:37:00.268+0000] {qualidade.py:144} INFO - qualidade: [OK   ] classe_agora_coerente_com_risco            Baixo <30, Moderado 30–54, Alto 55–74, Crítico >=75
+[2026-11-15T20:37:00.268+0000] {qualidade.py:144} INFO - qualidade: [OK   ] classe_24h_coerente_com_risco              
+[2026-11-15T20:37:00.268+0000] {qualidade.py:144} INFO - qualidade: [OK   ] moradores_igual_casas_x_2_8                
+[2026-11-15T20:37:00.268+0000] {qualidade.py:144} INFO - qualidade: [OK   ] fissura_detectada_quando_prob_maior_55     
+[2026-11-15T20:37:00.268+0000] {qualidade.py:144} INFO - qualidade: [OK   ] plantio_so_sem_casas_e_sem_rocha           
+[2026-11-15T20:37:00.268+0000] {qualidade.py:144} INFO - qualidade: [OK   ] mudas_so_onde_ha_plantio                   
+[2026-11-15T20:37:00.268+0000] {qualidade.py:144} INFO - qualidade: [AVISO] altitude_negativa                          altitude é relativa à base do morro; valores < 0 ficam abaixo da rua
+[2026-11-15T20:37:00.268+0000] {qualidade.py:144} INFO - qualidade: [OK   ] erro_visao_ate_20_pct                      visão errou o tipo de solo em 10.1% das células (esperado ~12%)
+[2026-11-15T20:37:00.268+0000] {qualidade.py:144} INFO - qualidade: [AVISO] coluna_sem_variacao_tendencia              único valor neste voo: estavel
+[2026-11-15T20:37:00.269+0000] {qualidade.py:144} INFO - qualidade: [AVISO] coluna_sem_variacao_irrigar                único valor neste voo: False
+[2026-11-15T20:37:00.269+0000] {qualidade.py:144} INFO - qualidade: [AVISO] coluna_sem_variacao_agua_sugerida_l        único valor neste voo: 0
+[2026-11-15T20:37:00.270+0000] {qualidade.py:148} INFO - qualidade: 32 regras | 0 erros | 4 avisos
+[2026-11-15 20:37:00,270] {python.py:240} INFO - Done. Returned value was: ./data/silver/dt=2026-11-15
+[2026-11-15T20:37:00.270+0000] {python.py:240} INFO - Done. Returned value was: ./data/silver/dt=2026-11-15
+[2026-11-15T20:37:00.277+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-11-15T20:37:00.277+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=em_raizes_pipeline, task_id=validacao_qualidade, run_id=manual__2026-11-15T00:00:00+00:00, execution_date=20261115T000000, start_date=, end_date=20261115T203700
+[2026-11-15T20:37:00.285+0000] {dag.py:4410} INFO - [DAG TEST] end task task_id=validacao_qualidade map_index=-1
+[2026-11-15T20:37:00.295+0000] {dag.py:4396} INFO - [DAG TEST] starting task_id=modelagem_gold map_index=-1
+[2026-11-15T20:37:00.295+0000] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: em_raizes_pipeline.modelagem_gold manual__2026-11-15T00:00:00+00:00 [scheduled]>
+[2026-11-15 20:37:00,313] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='em-raizes' AIRFLOW_CTX_DAG_ID='em_raizes_pipeline' AIRFLOW_CTX_TASK_ID='modelagem_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-11-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-15T00:00:00+00:00'
+[2026-11-15T20:37:00.313+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='em-raizes' AIRFLOW_CTX_DAG_ID='em_raizes_pipeline' AIRFLOW_CTX_TASK_ID='modelagem_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-11-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-15T00:00:00+00:00'
+[2026-11-15T20:37:00.314+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-11-15T20:37:00.352+0000] {gold.py:154} INFO - gold: dim_voo                   1 linhas, 12 colunas
+[2026-11-15T20:37:00.354+0000] {gold.py:154} INFO - gold: dim_setor                 9 linhas,  4 colunas
+[2026-11-15T20:37:00.356+0000] {gold.py:154} INFO - gold: dim_celula              576 linhas,  7 colunas
+[2026-11-15T20:37:00.359+0000] {gold.py:154} INFO - gold: fato_medicao_celula     576 linhas, 22 colunas
+[2026-11-15T20:37:00.362+0000] {gold.py:154} INFO - gold: mart_risco_setor          9 linhas, 18 colunas
+[2026-11-15T20:37:00.363+0000] {gold.py:154} INFO - gold: mart_avaliacao_visao      5 linhas,  6 colunas
+[2026-11-15T20:37:00.365+0000] {gold.py:154} INFO - gold: log_qualidade            32 linhas,  6 colunas
+[2026-11-15 20:37:00,365] {python.py:240} INFO - Done. Returned value was: ./data/gold/dt=2026-11-15
+[2026-11-15T20:37:00.365+0000] {python.py:240} INFO - Done. Returned value was: ./data/gold/dt=2026-11-15
+[2026-11-15T20:37:00.371+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-11-15T20:37:00.372+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=em_raizes_pipeline, task_id=modelagem_gold, run_id=manual__2026-11-15T00:00:00+00:00, execution_date=20261115T000000, start_date=, end_date=20261115T203700
+[2026-11-15T20:37:00.379+0000] {dag.py:4410} INFO - [DAG TEST] end task task_id=modelagem_gold map_index=-1
+[2026-11-15T20:37:00.388+0000] {dag.py:4396} INFO - [DAG TEST] starting task_id=carga_warehouse map_index=-1
+[2026-11-15T20:37:00.389+0000] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: em_raizes_pipeline.carga_warehouse manual__2026-11-15T00:00:00+00:00 [scheduled]>
+[2026-11-15 20:37:00,404] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='em-raizes' AIRFLOW_CTX_DAG_ID='em_raizes_pipeline' AIRFLOW_CTX_TASK_ID='carga_warehouse' AIRFLOW_CTX_EXECUTION_DATE='2026-11-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-15T00:00:00+00:00'
+[2026-11-15T20:37:00.404+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='em-raizes' AIRFLOW_CTX_DAG_ID='em_raizes_pipeline' AIRFLOW_CTX_TASK_ID='carga_warehouse' AIRFLOW_CTX_EXECUTION_DATE='2026-11-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-15T00:00:00+00:00'
+[2026-11-15T20:37:00.405+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-11-15T20:37:00.421+0000] {carga.py:91} INFO - carga: dim_voo                   1 linhas
+[2026-11-15T20:37:00.423+0000] {carga.py:91} INFO - carga: dim_setor                 9 linhas
+[2026-11-15T20:37:00.430+0000] {carga.py:91} INFO - carga: dim_celula              576 linhas
+[2026-11-15T20:37:00.448+0000] {carga.py:91} INFO - carga: fato_medicao_celula     576 linhas
+[2026-11-15T20:37:00.452+0000] {carga.py:91} INFO - carga: mart_risco_setor          9 linhas
+[2026-11-15T20:37:00.454+0000] {carga.py:91} INFO - carga: mart_avaliacao_visao      5 linhas
+[2026-11-15T20:37:00.457+0000] {carga.py:91} INFO - carga: log_qualidade            32 linhas
+[2026-11-15T20:37:00.461+0000] {carga.py:93} INFO - carga: voo voo_20261110_1925 carregado em sqlite:///./data/warehouse/em_raizes.db
+[2026-11-15 20:37:00,461] {python.py:240} INFO - Done. Returned value was: {'dim_voo': 1, 'dim_setor': 9, 'dim_celula': 576, 'fato_medicao_celula': 576, 'mart_risco_setor': 9, 'mart_avaliacao_visao': 5, 'log_qualidade': 32}
+[2026-11-15T20:37:00.461+0000] {python.py:240} INFO - Done. Returned value was: {'dim_voo': 1, 'dim_setor': 9, 'dim_celula': 576, 'fato_medicao_celula': 576, 'mart_risco_setor': 9, 'mart_avaliacao_visao': 5, 'log_qualidade': 32}
+[2026-11-15T20:37:00.477+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-11-15T20:37:00.477+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=em_raizes_pipeline, task_id=carga_warehouse, run_id=manual__2026-11-15T00:00:00+00:00, execution_date=20261115T000000, start_date=, end_date=20261115T203700
+[2026-11-15T20:37:00.494+0000] {dag.py:4410} INFO - [DAG TEST] end task task_id=carga_warehouse map_index=-1
+[2026-11-15T20:37:00.504+0000] {dag.py:4396} INFO - [DAG TEST] starting task_id=verificacao_final map_index=-1
+[2026-11-15T20:37:00.504+0000] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: em_raizes_pipeline.verificacao_final manual__2026-11-15T00:00:00+00:00 [scheduled]>
+[2026-11-15 20:37:00,521] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='em-raizes' AIRFLOW_CTX_DAG_ID='em_raizes_pipeline' AIRFLOW_CTX_TASK_ID='verificacao_final' AIRFLOW_CTX_EXECUTION_DATE='2026-11-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-15T00:00:00+00:00'
+[2026-11-15T20:37:00.521+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='em-raizes' AIRFLOW_CTX_DAG_ID='em_raizes_pipeline' AIRFLOW_CTX_TASK_ID='verificacao_final' AIRFLOW_CTX_EXECUTION_DATE='2026-11-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-15T00:00:00+00:00'
+[2026-11-15T20:37:00.522+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-11-15T20:37:00.523+0000] {carga.py:106} INFO - verificacao: dim_voo                   1 linhas no banco
+[2026-11-15T20:37:00.523+0000] {carga.py:106} INFO - verificacao: dim_setor                 9 linhas no banco
+[2026-11-15T20:37:00.524+0000] {carga.py:106} INFO - verificacao: dim_celula              576 linhas no banco
+[2026-11-15T20:37:00.524+0000] {carga.py:106} INFO - verificacao: fato_medicao_celula     576 linhas no banco
+[2026-11-15T20:37:00.524+0000] {carga.py:106} INFO - verificacao: mart_risco_setor          9 linhas no banco
+[2026-11-15T20:37:00.524+0000] {carga.py:106} INFO - verificacao: mart_avaliacao_visao      5 linhas no banco
+[2026-11-15T20:37:00.524+0000] {carga.py:106} INFO - verificacao: log_qualidade            32 linhas no banco
+[2026-11-15T20:37:00.525+0000] {carga.py:124} INFO - verificacao: integridade OK (fato x dim_voo, fato x dim_celula)
+[2026-11-15T20:37:00.525+0000] {carga.py:131} INFO - verificacao: prioridade -> Meio-Leste    classe Moderado  risco médio  49.1 |  30.8 moradores em risco alto
+[2026-11-15T20:37:00.525+0000] {carga.py:131} INFO - verificacao: prioridade -> Meio-Oeste    classe Moderado  risco médio  45.8 |  16.8 moradores em risco alto
+[2026-11-15T20:37:00.525+0000] {carga.py:131} INFO - verificacao: prioridade -> Alto-Centro   classe Moderado  risco médio  42.9 |  16.8 moradores em risco alto
+[2026-11-15 20:37:00,526] {python.py:240} INFO - Done. Returned value was: {'dim_voo': 1, 'dim_setor': 9, 'dim_celula': 576, 'fato_medicao_celula': 576, 'mart_risco_setor': 9, 'mart_avaliacao_visao': 5, 'log_qualidade': 32}
+[2026-11-15T20:37:00.526+0000] {python.py:240} INFO - Done. Returned value was: {'dim_voo': 1, 'dim_setor': 9, 'dim_celula': 576, 'fato_medicao_celula': 576, 'mart_risco_setor': 9, 'mart_avaliacao_visao': 5, 'log_qualidade': 32}
+[2026-11-15T20:37:00.539+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-11-15T20:37:00.540+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=em_raizes_pipeline, task_id=verificacao_final, run_id=manual__2026-11-15T00:00:00+00:00, execution_date=20261115T000000, start_date=, end_date=20261115T203700
+[2026-11-15T20:37:00.547+0000] {dag.py:4410} INFO - [DAG TEST] end task task_id=verificacao_final map_index=-1
+[2026-11-15T20:37:00.550+0000] {dagrun.py:854} INFO - Marking run <DagRun em_raizes_pipeline @ 2026-11-15 00:00:00+00:00: manual__2026-11-15T00:00:00+00:00, state:running, queued_at: None. externally triggered: False> successful
+[2026-11-15T20:37:00.550+0000] {dagrun.py:905} INFO - DagRun Finished: dag_id=em_raizes_pipeline, execution_date=2026-11-15 00:00:00+00:00, run_id=manual__2026-11-15T00:00:00+00:00, run_start_date=2026-11-15 00:00:00+00:00, run_end_date=2026-11-15 20:37:00.550637+00:00, run_duration=74220.550637, state=success, external_trigger=False, run_type=manual, data_interval_start=2026-11-14 00:00:00+00:00, data_interval_end=2026-11-15 00:00:00+00:00, dag_hash=None

@@ -1,0 +1,81 @@
+# Sobe o ambiente completo: Postgres + Airflow (init, webserver, scheduler).
+#   docker compose up -d --build     ->  http://localhost:8080  (admin / admin)
+# Senhas simples de propósito: é um ambiente acadêmico local, não de produção.
+
+x-airflow-common: &airflow-common
+  build: .
+  image: em-raizes-airflow:2.10.5
+  user: "${AIRFLOW_UID:-50000}:0"
+  environment: &airflow-env
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+    AIRFLOW__CORE__DEFAULT_TIMEZONE: America/Sao_Paulo
+    AIRFLOW__WEBSERVER__SECRET_KEY: em-raizes-ambiente-academico
+    # --- configuração do pipeline (lida por em_raizes/config.py) ---
+    PYTHONPATH: /opt/airflow
+    EMRAIZES_HOME: /opt/airflow
+    EMRAIZES_DATA_DIR: /opt/airflow/data
+    EMRAIZES_WAREHOUSE_URL: postgresql+psycopg2://emraizes:emraizes@postgres/em_raizes
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./em_raizes:/opt/airflow/em_raizes
+    - ./sql:/opt/airflow/sql
+    - ./data:/opt/airflow/data
+    - ./logs:/opt/airflow/logs
+  depends_on: &airflow-depends
+    postgres:
+      condition: service_healthy
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow            # metadados do Airflow
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # cria o banco em_raizes (warehouse do MVP) na primeira subida
+      - ./docker/init-warehouse.sql:/docker-entrypoint-initdb.d/init-warehouse.sql:ro
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 10
+
+  airflow-init:
+    <<: *airflow-common
+    environment:
+      <<: *airflow-env
+      _AIRFLOW_DB_MIGRATE: "true"
+      _AIRFLOW_WWW_USER_CREATE: "true"
+      _AIRFLOW_WWW_USER_USERNAME: admin
+      _AIRFLOW_WWW_USER_PASSWORD: admin
+    command: version
+    restart: "no"
+
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    depends_on:
+      <<: *airflow-depends
+      airflow-init:
+        condition: service_completed_successfully
+
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+    restart: unless-stopped
+    depends_on:
+      <<: *airflow-depends
+      airflow-init:
+        condition: service_completed_successfully
+
+volumes:
+  pgdata:
