@@ -29,8 +29,14 @@ from dicionario import TABELAS
 
 # ----------------------------------------------------------------------------
 # PREENCHA ANTES DE ENTREGAR
-EQUIPE = ""        # ex.: "Ana Silva (RM 12345) · Bruno Souza (RM 67890)"
-REPOSITORIO = ""   # ex.: "https://github.com/sua-equipe/em-raizes-pipeline"
+EQUIPE = ""        # preenchido abaixo como lista
+REPOSITORIO = "https://github.com/MicaelAzarias/Big-Data-GS"
+INTEGRANTES = [
+    "Carolina Cavalli Machado · RM552925",
+    "Felipe Megumi Nakama · RM552821",
+    "Luis Alberto Rocha Filho · RM553507",
+    "Micael Santos Azarias · RM552699",
+]
 # ----------------------------------------------------------------------------
 
 DOCS = Path(__file__).resolve().parent
@@ -263,10 +269,14 @@ def gerar_pdf(destino: Path) -> None:
     h.append(Paragraph("Em Raízes — Pipeline de dados do MVP", titulo))
     h.append(Spacer(1, 4))
     h.append(Paragraph("Big Data Architecture &amp; Data Integration · Arquitetura e dicionário de dados", sub))
-    if EQUIPE:
-        h.append(Paragraph(f"Equipe: {EQUIPE}", sub))
+    if INTEGRANTES:
+        h.append(Spacer(1, 6))
+        h.append(Paragraph("<b>Equipe</b>", sub))
+        for nome in INTEGRANTES:
+            h.append(Paragraph(nome, sub))
     if REPOSITORIO:
-        h.append(Paragraph(f"Repositório: {REPOSITORIO}", sub))
+        h.append(Spacer(1, 4))
+        h.append(Paragraph(f"<b>Repositório:</b> {REPOSITORIO}", sub))
 
     # ---- 1 ------------------------------------------------------------------
     h.append(Paragraph("1. Contexto e origem dos dados", h1))
@@ -382,7 +392,7 @@ def gerar_pdf(destino: Path) -> None:
     SimpleDocTemplate(
         str(destino), pagesize=A4, leftMargin=2 * cm, rightMargin=2 * cm,
         topMargin=1.8 * cm, bottomMargin=2 * cm,
-        title="Em Raízes — Pipeline de dados do MVP", author=EQUIPE or "Equipe Em Raízes",
+        title="Em Raízes — Pipeline de dados do MVP", author="; ".join(INTEGRANTES) or "Equipe Em Raízes",
     ).build(h, onFirstPage=rodape, onLaterPages=rodape)
 
 
